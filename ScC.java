@@ -45,6 +45,8 @@ abstract class ScC {
         return this.venueId;
     }
 
-    abstract public boolean clashWith(ScC clas);
+    abstract public boolean clashWith(Lecture lec);
+
+    abstract public boolean clashWith(Tutorial tut);
 }
 
