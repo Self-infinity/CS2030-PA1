@@ -30,7 +30,7 @@ class Schedule {
     @Override
     public String toString() {
         String classLst = "";
-        Schedule.sort(null);
+        Schedule.sort();
         for (ScC c : this.Schedule) {
             classLst = classLst + "\n" + c.toString();
         }
