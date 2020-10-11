@@ -69,22 +69,22 @@ class ScC {
     }
 
     public boolean timeOverlap(ScC clas) {
-            if (this instanceof Tutorial) {
-                if (clas instanceof Tutorial) {
-                    if (this.getModCode().equals(clas.getModCode()) && !(this.getInstructor().equals(clas.getInstructor())) && !(this.getVenueId().equals(clas.getVenueId()))){
-                        return false;
-                    }
-                    else {
-                        return true;
-                    }
+        if (this instanceof Tutorial) {
+            if (clas instanceof Tutorial) {
+                if (this.getModCode().equals(clas.getModCode()) && !(this.getInstructor().equals(clas.getInstructor())) && !(this.getVenueId().equals(clas.getVenueId()))){
+                    return false;
                 }
                 else {
                     return true;
                 }
             }
-            else { 
+            else {
                 return true;
             }
+                }
+        else { 
+            return true;
+        }
     }
 }
 
