@@ -45,8 +45,23 @@ class ScC {
         return this.venueId;
     }
 
-    public boolean clashWith(ScC clas) {
-        return true;
+    public boolean clashWith(ScC clas){
+        if (this.getStartTime() <= clas.getStartTime()){
+            if (this.getStartTime() + this.getDuration() <= clas.getStartTime()){
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+        else{
+            if (this.getStartTime() >= clas.getStartTime() + clas.getDuration()){
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
     }
 
 }
