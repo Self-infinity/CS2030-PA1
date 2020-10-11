@@ -1,4 +1,4 @@
-abstract class ScC {
+class ScC {
     private final String modCode;
     private final int classId;
     private final String venueId;
@@ -45,8 +45,9 @@ abstract class ScC {
         return this.venueId;
     }
 
-    abstract public boolean clashWith(Lecture lec);
+    public boolean clashWith(ScC clas) {
+        return true;
+    }
 
-    abstract public boolean clashWith(Tutorial tut);
 }
 
