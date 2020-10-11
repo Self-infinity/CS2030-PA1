@@ -4,9 +4,9 @@ class Lecture extends ScC {
         super(modCode, classId, venueId, instructor, startTime, 2);
         
     }
-
+    
     @Override
     public String toString() {
-        return this.getModCode() + " L" + this.getClassID() + " @ " + this.getVenueId() + " [" + this.getInstructor() + "] " + this.getStartTime() +"--"+ (this.getStartTime() + 1);
+        return this.getModCode() + " L" + this.getClassID() + " @ " + this.getVenueId() + " [" + this.getInstructor() + "] " + this.getStartTime() +"--"+ (this.getStartTime() + this.getDuration());
     }
 }

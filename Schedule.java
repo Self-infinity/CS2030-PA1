@@ -30,10 +30,10 @@ class Schedule {
 
     @Override
     public String toString() {
-        String classLst = "";
         List<ScC> currentSchedule = this.Schedule;
-        Collections.sort(currentSchedule);
-        for (ScC c : this.Schedule) {
+        Collections.sort(currentSchedule, new SortingStandard());
+        String classLst = "";
+        for (ScC c : currentSchedule) {
             classLst = classLst + "\n" + c.toString();
         }
         return classLst;

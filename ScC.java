@@ -6,12 +6,12 @@ class ScC {
     private final Instructor instructor;
     private final int duration;
     ScC(String modCode, int classId, String venueId, Instructor instructor, int startTime, int duration){
-    this.modCode = modCode;
-    this.classId = classId;
-    this.venueId = venueId;
-    this.instructor = instructor;
-    this.startTime = startTime;
-    this.duration = duration;}
+        this.modCode = modCode;
+        this.classId = classId;
+        this.venueId = venueId;
+        this.instructor = instructor;
+        this.startTime = startTime;
+        this.duration = duration;}
 
     public boolean hasSameModule(ScC clas){
         return this.modCode == clas.modCode;
@@ -25,16 +25,16 @@ class ScC {
         return this.venueId == clas.venueId;
     }
 
+    public int getDuration() {
+        return this.duration;
+    }
+
     public String getModCode() {
         return this.modCode;
     }
 
     public Instructor getInstructor() {
         return this.instructor;
-    }
-
-    public int getDuration() {
-        return this.duration;
     }
 
     public int getStartTime() {
@@ -69,21 +69,56 @@ class ScC {
     }
 
     public boolean timeOverlap(ScC clas) {
-        if (this instanceof Tutorial) {
-            if (clas instanceof Tutorial) {
-                if (this.getModCode().equals(clas.getModCode()) && !(this.getInstructor().equals(clas.getInstructor())) && !(this.getVenueId().equals(clas.getVenueId()))){
-                    return false;
+        if (this.getModCode().equals(clas.getModCode())){//modCode is same
+            if (this.getDuration() == 1) { //this is a tut
+                if (clas.getDuration() == 1) { //clas is a tut
+                    if (!(this.getInstructor().equals(clas.getInstructor())) && !(this.getVenueId().equals(clas.getVenueId()))){
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
                 }
-                else {
+                else { //clas is a lec
                     return true;
                 }
             }
-            else {
+            else { 
                 return true;
             }
+        }
+        else {//modCode is different
+            if (this.getDuration() == 1) { //this is a tut
+                if (clas.getDuration() == 1) { //clas is a tut
+                    return true;
                 }
-        else { 
-            return true;
+                else { //clas is a lec
+                    if (!(this.getInstructor().equals(clas.getInstructor())) && !(this.getVenueId().equals(clas.getVenueId()))){
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
+                }
+            }
+            else { //this is a lec
+                if (clas.getDuration() == 1) { //clas is a tut
+                    if (!(this.getInstructor().equals(clas.getInstructor())) && !(this.getVenueId().equals(clas.getVenueId()))){
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
+                }
+                else { //clas is a lec
+                    if (!(this.getInstructor().equals(clas.getInstructor())) && !(this.getVenueId().equals(clas.getVenueId()))){
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
+                }    
+            }
         }
     }
 }
