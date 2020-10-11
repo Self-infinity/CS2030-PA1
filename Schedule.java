@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
 
 class Schedule {
     private final List<ScC> Schedule;
@@ -30,6 +31,7 @@ class Schedule {
     @Override
     public String toString() {
         String classLst = "";
+        Schedule.sort(null);
         for (ScC c : this.Schedule) {
             classLst = classLst + "\n" + c.toString();
         }
