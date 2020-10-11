@@ -71,7 +71,7 @@ class ScC {
     public boolean timeOverlap(ScC clas) {
             if (this instanceof Tutorial) {
                 if (clas instanceof Tutorial) {
-                    if (!(this.getInstructor().equals(clas.getInstructor())) && !(this.getVenueId().equals(clas.getVenueId()))){
+                    if (this.getModCode().equals(clas.getModCode()) && !(this.getInstructor().equals(clas.getInstructor())) && !(this.getVenueId().equals(clas.getVenueId()))){
                         return false;
                     }
                     else {
