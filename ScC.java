@@ -33,6 +33,10 @@ class ScC {
         return this.instructor;
     }
 
+    public int getDuration() {
+        return this.duration;
+    }
+
     public int getStartTime() {
         return startTime;
     }
@@ -51,7 +55,7 @@ class ScC {
                 return false;
             }
             else{
-                return true;
+                return this.timeOverlap(clas);
             }
         }
         else{
@@ -59,10 +63,63 @@ class ScC {
                 return false;
             }
             else {
-                return true;
+                return this.timeOverlap(clas);
             }
         }
     }
 
+    public boolean timeOverlap(ScC clas) {
+        if (this.getModCode().equals(clas.getModCode())){
+            if (this instanceof Tutorial) {
+                if (clas instanceof Tutorial) {
+                    if (!(this.getInstructor().equals(clas.getInstructor())) && !(this.getVenueId().equals(clas.getVenueId()))){
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
+                }
+                else {
+                    return true;
+                }
+            }
+            else { 
+                return true;
+            }
+        }
+        else {
+            if (this instanceof Tutorial) {
+                if (clas instanceof Tutorial) {
+                    return true;
+                }
+                else {
+                    if (!(this.getInstructor().equals(clas.getInstructor())) && !(this.getVenueId().equals(clas.getVenueId()))){
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
+                }
+            }
+            else {
+                if (clas instanceof Tutorial) {
+                    if (!(this.getInstructor().equals(clas.getInstructor())) && !(this.getVenueId().equals(clas.getVenueId()))){
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
+                }
+                else {
+                    if (!(this.getInstructor().equals(clas.getInstructor())) && !(this.getVenueId().equals(clas.getVenueId()))){
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
+                }    
+            }
+        }
+    }
 }
 
